@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Bliss - Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Travel Bliss</h1></header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="form-container">
+        <h2>Book Your Trip</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label>Trip Type:</label>
+                <div class="inline-options">
+                    <label><input type="radio" name="trip" value="adventure" required> Adventure</label>
+                    <label><input type="radio" name="trip" value="relax"> Relax</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Extras:</label>
+                <div class="inline-options">
+                    <label><input type="checkbox"> Meals</label>
+                    <label><input type="checkbox"> Guided Tour</label>
+                </div>
+            </div>
+            <input type="submit" value="Book Now">
+        </form>
+    </div>
+    <footer>&copy; 2025 Travel Bliss</footer>
+</body>
+</html>
