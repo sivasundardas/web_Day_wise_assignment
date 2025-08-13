@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Sivasundar Das - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50 !important; /* Classic navy */
+        }
+        .navbar-brand, .nav-link {
+            color: #ecf0f1 !important; /* Light gray */
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #f1c40f !important; /* Gold accent */
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #34495e; /* Dark blue-gray */
+        }
+        .hero img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            border: 4px solid #f1c40f; /* Gold border */
+        }
+        .hero h1 {
+            color: #ecf0f1; /* Name */
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        .hero p {
+            color: #f1c40f; /* Gold subtext */
+            font-weight: 500;
+            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            color: #2c3e50; /* Navy */
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            color: #2c3e50;
+            margin: 0 12px;
+            font-size: 1.8rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #f1c40f;
+            transform: scale(1.2);
+        }
+
+        /* Cards / Lists */
+        .list-group-item {
+            border-left: 4px solid #2c3e50;
+        }
+
+        h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">K. Sivasundar Das</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <img src="IMG-20240309-WA0081.jpg" alt="Profile Picture">
+    <h1>Kamisetty Sivasundar Das</h1>
+    <p>Full Stack Developer | Java | Spring Boot | AWS Enthusiast</p>
+</section>
+
+<!-- About Section -->
+<section id="about" class="container py-5">
+    <h2 class="section-title">About Me</h2>
+    <p>I am a passionate software developer skilled in Java, Spring Boot, AWS, and modern web technologies. I love solving problems, building scalable applications, and exploring new technologies.</p>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="container py-5">
+    <h2 class="section-title">Education</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>B.Tech (Information Technology)</strong> - Sree Vidyanikethan Engineering College (2021-2024)</li>
+        <li class="list-group-item"><strong>Diploma (Computer Engineering)</strong> - Sree Vidyanikethan Engineering College (2017-2020)</li>
+        <li class="list-group-item"><strong>SSC</strong> - AP Model School Pullampeta (2016-2017)</li>
+    </ul>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="container py-5">
+    <h2 class="section-title">Projects</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>JSPGram</h4>
+            <p>A social media platform with user registration, OTP verification, premium membership using Razorpay, Cloudinary integration for images, and real-time post interactions.</p>
+        </div>
+        <div class="col-md-6">
+            <h4>Mana Music</h4>
+            <p>Mana Music – A personalized music streaming platform offering your favorite songs in multiple languages. Discover, create playlists, and enjoy high-quality audio anytime, anywhere.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container py-5">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:sivasundardas200@gmail.com">sivasundardas200@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919948104203">+91 9948104203</a></p>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/kamisetty-sivasundar-das-985096192/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/sivasundardas_kamisetty/?igsh=MWVrbGw0OTl2MW5rdw%3D%3D#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/sivasundardas" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 K. Sivasundar Das. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
