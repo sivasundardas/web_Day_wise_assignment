@@ -1,0 +1,42 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar logo spacing */
+.navbar-brand img {
+    margin-right: 8px;
+}
+
+/* Product card uniform size */
+/* .card-img-top {
+    height: 100px;
+    object-fit: cover;
+} */
+
+/* Form styling */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+}
+/* Carousel Image Height Control */
+
+.carousel-item img {
+    height: 10px;
+    object-fit: cover;
+}
+.carousel-item img {
+    height: 250px;      /* Adjust height as needed */
+    object-fit: cover;
+
+}

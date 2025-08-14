@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supermarket - Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* Carousel height */
+.carousel-item img {
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Category cards */
+.category-card img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Featured products */
+.product-card img {
+    height: 225px;
+    object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            🛒 SuperMarket
+        </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Carousel -->
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/Organic Vegetables.jpeg" class="d-block w-100" alt="Fresh Fruits">
+        </div>
+        <div class="carousel-item">
+            <img src="images/Daily Essentials.jpeg" class="d-block w-100" alt="Vegetables">
+        </div>
+        <div class="carousel-item">
+            <img src="images/Fresh Fruits.jpeg" class="d-block w-100" alt="Daily Essentials">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Categories -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Shop by Category</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="category-card text-center">
+                <img src="images/fruits.jpeg" class="img-fluid">
+                <h5 class="mt-2">Fruits</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card text-center">
+                <img src="images/vegetables.jpeg" class="img-fluid">
+                <h5 class="mt-2">Vegetables</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card text-center">
+                <img src="images/groceries.jpeg" class="img-fluid">
+                <h5 class="mt-2">Groceries</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card text-center">
+                <img src="images/backery.jpeg" class="img-fluid">
+                <h5 class="mt-2">Bakery</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="images/Olive Oil.jpeg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>Olive Oil</h5>
+                    <p>₹350/bottle</p>
+                    <a href="#" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="images/bread.jpeg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>Bread</h5>
+                    <p>₹30/pack</p>
+                    <a href="#" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="images/ricei.jpeg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>Rice</h5>
+                    <p>₹40/kg</p>
+                    <a href="#" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="images/milk.jpeg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>Milk</h5>
+                    <p>₹80/L</p>
+                    <a href="#" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 SuperMarket. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
