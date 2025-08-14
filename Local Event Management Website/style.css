@@ -1,0 +1,25 @@
+/* Global */
+body { background:#f8f9fa; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+.navbar-brand img { margin-right:8px; }
+.section-title { font-weight:700; margin-bottom:1rem; }
+
+/* Hero */
+.hero img { width:100%; height:360px; object-fit:cover; border-bottom-left-radius:14px; border-bottom-right-radius:14px; }
+
+/* Cards (uniform) */
+.card-img-top { width:100%; height:200px; object-fit:cover; }
+.event-mini .card-img-top { height:140px; }
+
+/* Badge + meta */
+.event-date { font-size:.9rem; }
+.event-meta { font-size:.9rem; color:#6c757d; }
+
+/* Forms */
+form { background:#fff; border-radius:10px; }
+form .form-label { font-weight:600; }
+
+/* Footer */
+footer { margin-top:40px; }
+
+/* Utilities */
+.btn-pill { border-radius:999px; }
