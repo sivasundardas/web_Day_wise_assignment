@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMS – Admin Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>.card{border:none;box-shadow:0 8px 22px rgba(0,0,0,.06)}</style>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="#">PMS Admin</a>
+    <ul class="navbar-nav ms-auto align-items-center gap-2">
+      <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="#add">Add Product</a></li>
+      <li class="nav-item"><a class="nav-link" href="#list">Product List</a></li>
+      <li class="nav-item"><button id="logoutBtn" class="btn btn-outline-danger btn-sm">Logout</button></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div id="guardMsg" class="my-3"></div>
+
+  <div id="add" class="card p-4 mb-4">
+    <h4 class="mb-3">Add / Edit Product</h4>
+    <div id="formMsg"></div>
+    <form id="productForm">
+      <input type="hidden" id="pid">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Name</label>
+          <input id="pname" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Price ($)</label>
+          <input id="pprice" type="number" min="0" class="form-control" required>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Description</label>
+          <textarea id="pdesc" class="form-control" rows="2" required></textarea>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Image Filename (inside images/)</label>
+          <input id="pimg" class="form-control" placeholder="smartphone.jpg">
+        </div>
+      </div>
+      <div class="mt-3 d-flex gap-2">
+        <button class="btn btn-primary">Save</button>
+        <button type="button" id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="list" class="row g-3"></div>
+</div>
+
+<script>
+/* ------ Utilities ------ */
+function session(){ return JSON.parse(localStorage.getItem('pms_session')||'null'); }
+function guard(){
+  const s = session();
+  if(!s){ location.href='login.html'; return false; }
+  if(s.role!=='admin'){ document.getElementById('guardMsg').innerHTML='<div class="alert alert-warning">Only admins allowed. Redirecting...</div>'; setTimeout(()=>location.href='user-dashboard.html',700); return false; }
+  return true;
+}
+function getProducts(){ return JSON.parse(localStorage.getItem('pms_products')||'[]'); }
+function saveProducts(p){ localStorage.setItem('pms_products', JSON.stringify(p)); }
+function toast(el, type, text){ el.innerHTML=`<div class="alert alert-${type}">${text}</div>`; setTimeout(()=>el.innerHTML='', 1300); }
+
+/* ------ Logout ------ */
+document.getElementById('logoutBtn').onclick = ()=>{ localStorage.removeItem('pms_session'); location.href='login.html'; };
+
+/* ------ Render List ------ */
+function renderList(){
+  const wrap = document.getElementById('list');
+  const products = getProducts();
+  wrap.innerHTML = products.map(p=>`
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="images/${p.image}" class="card-img-top" alt="${p.name}">
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-between align-items-center">
+            <span>${p.name}</span><span class="badge text-bg-secondary">$${p.price}</span>
+          </h5>
+          <p class="card-text small">${p.description}</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-primary" onclick='editProduct(${p.id})'>Edit</button>
+            <button class="btn btn-sm btn-outline-danger" onclick='delProduct(${p.id})'>Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('') || '<div class="text-center text-muted">No products yet.</div>';
+}
+
+/* ------ CRUD ------ */
+function editProduct(id){
+  const p = getProducts().find(x=>x.id===id); if(!p) return;
+  pid.value = p.id; pname.value = p.name; pprice.value = p.price; pdesc.value = p.description; pimg.value = p.image||'';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function delProduct(id){
+  if(!confirm('Delete this product?')) return;
+  let arr = getProducts().filter(x=>x.id!==id);
+  saveProducts(arr); renderList();
+}
+document.getElementById('resetBtn').onclick = ()=>{ pid.value=''; productForm.reset(); };
+
+const productForm = document.getElementById('productForm');
+const pid = document.getElementById('pid'), pname = document.getElementById('pname'),
+      pprice = document.getElementById('pprice'), pdesc = document.getElementById('pdesc'), pimg = document.getElementById('pimg');
+
+productForm.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  let arr = getProducts();
+  const data = {
+    id: pid.value? Number(pid.value) : (arr.length? Math.max(...arr.map(x=>x.id))+1 : 1),
+    name: pname.value.trim(),
+    description: pdesc.value.trim(),
+    price: Number(pprice.value),
+    image: pimg.value.trim()
+  };
+  if(pid.value){
+    arr = arr.map(x=> x.id===data.id ? data : x);
+    toast(formMsg,'success','Product updated.');
+  } else {
+    arr.push(data);
+    toast(formMsg,'success','Product created.');
+  }
+  saveProducts(arr); productForm.reset(); pid.value=''; renderList();
+});
+
+/* ------ Init ------ */
+if(guard()) renderList();
+</script>
+</body>
+</html>
